@@ -1,8 +1,8 @@
 {
   "name": "tobeportal",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "node_modules/expo/AppEntry.js",
-  "homepage": "http://dev.github.io/SDKDownload",
+  "homepage": "https://tobesrl.github.io/SDKDownload/",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",

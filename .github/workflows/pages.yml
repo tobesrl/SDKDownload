@@ -1,0 +1,11 @@
+name: Deploy on GitHub Pages
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  push:
+    tags:
+      - v*
+jobs:
+  Deploy:
+    runs-on: node
+    steps:
+      - run: yarn deploy
