@@ -1,7 +1,20 @@
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
+import {
+  useThemeMode,
+  useTheme,
+  Header,
+  Image,
+  Text,
+} from "@rneui/themed";
 import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
-import { Header, Icon, Image, Text } from "react-native-elements";
+import {
+  Platform,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  useColorScheme,
+} from "react-native";
+import { Icon } from "react-native-elements";
 
 const Button: React.FC<{
   onPress: () => void;
@@ -10,19 +23,20 @@ const Button: React.FC<{
   type?: string;
 }> = (props) => {
   const style = Style();
+  const iconName = props.icon;
+  const theme = useTheme();
+  const iconType = React.useMemo(() => {
+    return props.type === undefined ? "font-awesome" : props.type;
+  }, [props.type]);
+
+  const title = React.useMemo(() => {
+    return props.title !== "" ? props.title : undefined;
+  }, [props.type]);
 
   return (
     <TouchableOpacity style={style.button} onPress={props.onPress}>
-      <Icon
-        name={props.icon}
-        type={props.type ?? "font-awesome"}
-        color="#fff"
-      />
-      {props.title ? (
-        <Text style={style.buttonText}>{props.title}</Text>
-      ) : (
-        <></>
-      )}
+      <Icon name={iconName} type={iconType} color={theme.theme.colors.black} />
+      {title && Platform.OS === "web" ? <Text>{title}</Text> : <></>}
     </TouchableOpacity>
   );
 };
@@ -30,6 +44,13 @@ const Button: React.FC<{
 const TopMenu: React.FC = () => {
   const nav = useNavigation();
   const style = Style();
+  const colorScheme = useColorScheme();
+  const { setMode } = useThemeMode();
+  // const theme = useTheme();
+
+  React.useEffect(() => {
+    setMode(colorScheme);
+  }, [colorScheme]);
 
   return (
     <>
@@ -64,20 +85,17 @@ const TopMenu: React.FC = () => {
               <Icon
                 name="user"
                 type="font-awesome"
-                color="#fff"
                 onPress={() => nav.navigate("Login")}
               />
             ) : (
               <Icon
                 name="logout"
                 type="MaterialIcons"
-                color="#fff"
                 onPress={() => nav.navigate("Logout")}
               />
             )}
           </View>
         }
-        backgroundColor="#333" // Personalizza il colore dello sfondo del menu
       />
     </>
   );
@@ -109,7 +127,6 @@ const Style = () => {
       justifyContent: "center",
     },
     buttonText: {
-      color: "white",
       marginLeft: 5,
     },
   });

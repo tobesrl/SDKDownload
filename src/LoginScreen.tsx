@@ -1,13 +1,8 @@
 import React from "react";
-import { View, useColorScheme, Text } from "react-native";
-import Styles from "./styles";
+import { Text, View } from "react-native";
 import { Button, Input } from "react-native-elements";
 
 const LoginScreen: React.FC = () => {
-  const isDark = useColorScheme() === "dark";
-
-  const style = Styles(isDark);
-
   const [username, setUsername] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
 
@@ -16,9 +11,9 @@ const LoginScreen: React.FC = () => {
   };
 
   return (
-    <View style={style.container}>
+    <View>
       <View style={{ justifyContent: "center" }}>
-        <Text style={style.text}>LOGIN PAGE</Text>
+        <Text>LOGIN PAGE</Text>
         <Text>Indirizzo email</Text>
         <Input
           placeholder="Indirizzo email"

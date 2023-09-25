@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { ThemeProvider } from "react-native-elements";
+import { ThemeProvider } from "@rneui/themed";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { AppParamsList } from "./AppParamsList";
 import AboutScreen from "./src/AboutScreen";
@@ -10,6 +10,7 @@ import DownloadsScreen from "./src/DownloadsScreen";
 import HomeScreen from "./src/HomeScreen";
 import TopMenu from "./src/TopMenu";
 import LoginScreen from "./src/LoginScreen";
+import Theme from "./src/Theme";
 
 declare global {
   namespace ReactNavigation {
@@ -37,7 +38,7 @@ const App: React.FC = () => {
   return (
     <>
       <SafeAreaProvider>
-        <ThemeProvider>
+        <ThemeProvider theme={Theme}>
           <NavigationContainer>
             <StatusBar style="auto" />
             <TopMenu />

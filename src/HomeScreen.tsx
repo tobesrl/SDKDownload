@@ -1,21 +1,14 @@
-import { useNavigation } from "@react-navigation/native";
+import { useThemeMode } from "@rneui/themed";
 import React from "react";
-import { Text, View, useColorScheme } from "react-native";
-import Styles from "./styles";
-import { Image } from "react-native-elements";
+import { Text, View } from "react-native";
 
 const HomeScreen: React.FC = () => {
-  const isDark = useColorScheme() === "dark";
-
-  const style = Styles(isDark);
-
-  const nav = useNavigation();
-
+  const theme = useThemeMode();
+  
   return (
-    <View style={style.container}>
-      <Text style={style.text}>
-        Open up App.js to start working on your app!
-      </Text>
+    <View>
+      <Text>Open up App.js to start working on your app!</Text>
+      <Text>{theme.mode}</Text>
     </View>
   );
 };
