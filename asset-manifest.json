@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/SDKDownload/static/js/main.97a50e10.js",
-    "static/js/611.d160303a.js": "/SDKDownload/static/js/611.d160303a.js",
+    "main.js": "/SDKDownload/static/js/main.def34985.js",
+    "static/js/495.d81a31f1.js": "/SDKDownload/static/js/495.d81a31f1.js",
     "static/media/MaterialCommunityIcons.ttf": "/SDKDownload/static/media/MaterialCommunityIcons.5d42b4e60858731e7b65.ttf",
     "static/media/Fontisto.ttf": "/SDKDownload/static/media/Fontisto.c0edd68811e0237502fe.ttf",
     "static/media/Ionicons.ttf": "/SDKDownload/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
@@ -28,11 +28,11 @@
     "favicon-16.png": "/SDKDownload/favicon-16.png",
     "manifest.json": "/SDKDownload/manifest.json",
     "serve.json": "/SDKDownload/serve.json",
-    "main.97a50e10.js.map": "/SDKDownload/static/js/main.97a50e10.js.map",
-    "611.d160303a.js.map": "/SDKDownload/static/js/611.d160303a.js.map"
+    "main.def34985.js.map": "/SDKDownload/static/js/main.def34985.js.map",
+    "495.d81a31f1.js.map": "/SDKDownload/static/js/495.d81a31f1.js.map"
   },
   "entrypoints": [
-    "static/js/611.d160303a.js",
-    "static/js/main.97a50e10.js"
+    "static/js/495.d81a31f1.js",
+    "static/js/main.def34985.js"
   ]
 }
