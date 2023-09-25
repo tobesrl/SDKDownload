@@ -1,6 +1,6 @@
 {
   "name": "tobeportal",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.1-beta.1",
   "main": "node_modules/expo/AppEntry.js",
   "homepage": "https://tobesrl.github.io/SDKDownload/",
   "scripts": {
