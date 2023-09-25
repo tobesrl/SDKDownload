@@ -1,11 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import {
-  useThemeMode,
-  useTheme,
-  Header,
-  Image,
-  Text,
-} from "@rneui/themed";
+import { useThemeMode, useTheme, Header, Image, Text } from "@rneui/themed";
 import React from "react";
 import {
   Platform,
@@ -46,7 +40,7 @@ const TopMenu: React.FC = () => {
   const style = Style();
   const colorScheme = useColorScheme();
   const { setMode } = useThemeMode();
-  // const theme = useTheme();
+  const theme = useTheme();
 
   React.useEffect(() => {
     setMode(colorScheme);
@@ -85,12 +79,14 @@ const TopMenu: React.FC = () => {
               <Icon
                 name="user"
                 type="font-awesome"
+                color={theme.theme.colors.black}
                 onPress={() => nav.navigate("Login")}
               />
             ) : (
               <Icon
                 name="logout"
                 type="MaterialIcons"
+                color={theme.theme.colors.black}
                 onPress={() => nav.navigate("Logout")}
               />
             )}
@@ -127,7 +123,7 @@ const Style = () => {
       justifyContent: "center",
     },
     buttonText: {
-      marginLeft: 5,
+      marginLeft: 10,
     },
   });
 };

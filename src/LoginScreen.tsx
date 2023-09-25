@@ -1,6 +1,6 @@
+import { Button, Card, Input, Text } from "@rneui/themed";
 import React from "react";
-import { Text, View } from "react-native";
-import { Button, Input } from "react-native-elements";
+import { View } from "react-native";
 
 const LoginScreen: React.FC = () => {
   const [username, setUsername] = React.useState<string>();
@@ -11,9 +11,10 @@ const LoginScreen: React.FC = () => {
   };
 
   return (
-    <View>
-      <View style={{ justifyContent: "center" }}>
-        <Text>LOGIN PAGE</Text>
+    <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
+      <Card containerStyle={{ width: 300 }}>
+        <Card.Title>LOGIN PAGE</Card.Title>
+        <Card.Divider />
         <Text>Indirizzo email</Text>
         <Input
           placeholder="Indirizzo email"
@@ -23,11 +24,12 @@ const LoginScreen: React.FC = () => {
         <Text>Password</Text>
         <Input
           placeholder="Password"
+          secureTextEntry={true}
           onChangeText={(t) => setPassword(t)}
           value={password}
         />
         <Button title="Login" onPress={submit} />
-      </View>
+      </Card>
     </View>
   );
 };

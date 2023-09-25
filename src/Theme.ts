@@ -1,5 +1,5 @@
 import { createTheme, darkColors, lightColors } from "@rneui/themed";
-import { Platform } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 const Theme = createTheme({
   lightColors: {
@@ -14,6 +14,24 @@ const Theme = createTheme({
       ios: darkColors.platform.ios,
     }),
   },
+});
+
+export const Structure = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    alignItems: "center",
+  },
+  container: {
+    flex: 1,
+    ...Platform.select({
+      web: {
+        maxWidth: 980,
+      },
+    }),
+  },
+  spaceEvenly: {
+    justifyContent: 'space-evenly'
+  }
 });
 
 export default Theme;
