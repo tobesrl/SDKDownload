@@ -1,11 +1,17 @@
 name: Deploy on GitHub Pages
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: ${{ github.actor }} Request deploy on GitHub Pages 🚀
 on:
   push:
     tags:
       - v*
 jobs:
   Deploy:
-    runs-on: node
+    runs-on: ubuntu-latest
     steps:
-      - run: yarn deploy
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+
+      - run: npm install --read-only-lockfile
+
+      - run: npm run deploy
