@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.1-beta.2](https://github.com/tobesrl/SDKDownload/compare/v0.0.1-beta.1...v0.0.1-beta.2) (2023-09-26)
+
+
+### Features
+
+* :bug: navigation routes for web ([b90e96f](https://github.com/tobesrl/SDKDownload/commit/b90e96f830014acca24d6c127da25572d0da24fe))
+
 ### 0.0.1-beta.1 (2023-09-25)
 
 
