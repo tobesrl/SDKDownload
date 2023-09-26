@@ -4,7 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { PropsWithChildren } from "react";
 import { Text, ThemeProvider, useTheme } from "@rneui/themed";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { AppParamsList } from "./AppParamsList";
+import { AppParamsLinking, AppParamsList } from "./AppParamsList";
 import AboutScreen from "./src/AboutScreen";
 import DownloadsScreen from "./src/DownloadsScreen";
 import HomeScreen from "./src/HomeScreen";
@@ -18,6 +18,8 @@ declare global {
     interface RootParamList extends AppParamsList {}
   }
 }
+
+// type Proa = keyof linking.screens;
 
 const MainNavigator: React.FC = () => {
   const Stack = createNativeStackNavigator();
@@ -46,7 +48,7 @@ const App: React.FC = () => {
     <>
       <SafeAreaProvider>
         <ThemeProvider theme={Theme}>
-          <NavigationContainer>
+          <NavigationContainer linking={AppParamsLinking}>
             <StatusBar style="auto" />
             <TopMenu />
             <MainNavigator />

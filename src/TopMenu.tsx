@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
-import { useThemeMode, useTheme, Header, Image, Text } from "@rneui/themed";
+import { Header, Image, Text, useTheme, useThemeMode } from "@rneui/themed";
+import { useAssets } from "expo-asset";
 import React from "react";
 import {
   Platform,
@@ -41,23 +42,31 @@ const TopMenu: React.FC = () => {
   const colorScheme = useColorScheme();
   const { setMode } = useThemeMode();
   const theme = useTheme();
-
+  const [assets, error] = useAssets([require("../assets/logo_tobe.webp")]);
   React.useEffect(() => {
     setMode(colorScheme);
   }, [colorScheme]);
+
+  // React.useEffect(() => {
+  //   Asset.loadAsync(moduleIds).then(setAssets).catch(setError);
+  // }, []);
 
   return (
     <>
       <Header
         placement="left"
         leftComponent={
-          <Image
-            source={{
-              uri: "https://tobe-srl.it/wp-content/uploads/2020/05/ToBe_logo_white_transparent_RGB.png",
-            }}
-            style={style.logo}
-            onPress={() => nav.navigate("Home")}
-          />
+          !!assets && assets.length > 0 ? (
+            <Image
+              source={{
+                uri: assets[0].localUri,
+              }}
+              style={style.logo}
+              onPress={() => nav.navigate("Home")}
+            />
+          ) : (
+            <></>
+          )
         }
         centerComponent={
           <View style={style.cetner}>
