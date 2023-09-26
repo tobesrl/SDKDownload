@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/SDKDownload/static/js/main.def34985.js",
-    "static/js/495.d81a31f1.js": "/SDKDownload/static/js/495.d81a31f1.js",
+    "main.js": "/SDKDownload/static/js/main.063fdec4.js",
+    "static/js/369.32e1525b.js": "/SDKDownload/static/js/369.32e1525b.js",
     "static/media/MaterialCommunityIcons.ttf": "/SDKDownload/static/media/MaterialCommunityIcons.5d42b4e60858731e7b65.ttf",
     "static/media/Fontisto.ttf": "/SDKDownload/static/media/Fontisto.c0edd68811e0237502fe.ttf",
     "static/media/Ionicons.ttf": "/SDKDownload/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
@@ -19,6 +19,7 @@
     "static/media/Zocial.ttf": "/SDKDownload/static/media/Zocial.07fea2ac49bcc67d9a6b.ttf",
     "favicon.ico": "/SDKDownload/favicon.ico",
     "static/media/EvilIcons.ttf": "/SDKDownload/static/media/EvilIcons.699664b33ac2837d5bee.ttf",
+    "static/media/logo_tobe.webp": "/SDKDownload/static/media/logo_tobe.6e6ee80252dcf77c6163.webp",
     "index.html": "/SDKDownload/index.html",
     "static/media/rocket.png": "/SDKDownload/static/media/rocket.d2f3bf41d5e4515c39a9.png",
     "static/media/bell.png": "/SDKDownload/static/media/bell.cf04af27d6a651c4b904.png",
@@ -28,11 +29,11 @@
     "favicon-16.png": "/SDKDownload/favicon-16.png",
     "manifest.json": "/SDKDownload/manifest.json",
     "serve.json": "/SDKDownload/serve.json",
-    "main.def34985.js.map": "/SDKDownload/static/js/main.def34985.js.map",
-    "495.d81a31f1.js.map": "/SDKDownload/static/js/495.d81a31f1.js.map"
+    "main.063fdec4.js.map": "/SDKDownload/static/js/main.063fdec4.js.map",
+    "369.32e1525b.js.map": "/SDKDownload/static/js/369.32e1525b.js.map"
   },
   "entrypoints": [
-    "static/js/495.d81a31f1.js",
-    "static/js/main.def34985.js"
+    "static/js/369.32e1525b.js",
+    "static/js/main.063fdec4.js"
   ]
 }
