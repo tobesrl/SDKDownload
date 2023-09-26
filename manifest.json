@@ -5,5 +5,17 @@
   "name": "ToBePortal",
   "short_name": "ToBePortal",
   "start_url": "/?utm_source=web_app_manifest",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "related_applications": [
+    {
+      "platform": "itunes",
+      "id": "com.vlc.ToBePortal"
+    },
+    {
+      "platform": "play",
+      "url": "http://play.google.com/store/apps/details?id=com.pagepro.testpublishapp",
+      "id": "com.pagepro.testpublishapp"
+    }
+  ],
+  "prefer_related_applications": true
 }
