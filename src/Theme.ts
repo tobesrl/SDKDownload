@@ -1,20 +1,22 @@
 import { createTheme, darkColors, lightColors } from "@rneui/themed";
-import { Platform, StyleSheet } from "react-native";
+import { ColorSchemeName, Platform, StyleSheet } from "react-native";
 
-const Theme = createTheme({
-  lightColors: {
-    ...Platform.select({
-      default: lightColors.platform.android,
-      ios: lightColors.platform.ios,
-    }),
-  },
-  darkColors: {
-    ...Platform.select({
-      default: darkColors.platform.android,
-      ios: darkColors.platform.ios,
-    }),
-  },
-});
+const Theme = (colorScheme: ColorSchemeName) =>
+  createTheme({
+    lightColors: {
+      ...Platform.select({
+        default: lightColors.platform.android,
+        ios: lightColors.platform.ios,
+      }),
+    },
+    darkColors: {
+      ...Platform.select({
+        default: darkColors.platform.android,
+        ios: darkColors.platform.ios,
+      }),
+    },
+    mode: colorScheme,
+  });
 
 export const Structure = StyleSheet.create({
   wrapper: {
@@ -30,8 +32,8 @@ export const Structure = StyleSheet.create({
     }),
   },
   spaceEvenly: {
-    justifyContent: 'space-evenly'
-  }
+    justifyContent: "space-evenly",
+  },
 });
 
 export default Theme;

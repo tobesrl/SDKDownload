@@ -4,6 +4,7 @@ export type AppParamsList = {
   Downloads: undefined;
   Login: undefined;
   Logout: undefined;
+  NoMatch: undefined;
 };
 
 export const AppParamsLinking = {
@@ -14,5 +15,6 @@ export const AppParamsLinking = {
     Downloads: { path: "downloads" },
     Login: { path: "login" },
     Logout: { path: "logout" },
+    NoMatch: "*",
   },
 };

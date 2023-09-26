@@ -15,13 +15,19 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vlc.ToBePortal",
+      "associatedDomains": [
+        "applinks:com.vlc.ToBePortal"
+      ]
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.pagepro.testpublishapp",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"

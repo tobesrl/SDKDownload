@@ -1,14 +1,8 @@
-import { useNavigation } from "@react-navigation/native";
-import { Header, Image, Text, useTheme, useThemeMode } from "@rneui/themed";
+import { NativeStackHeaderProps } from "@react-navigation/native-stack";
+import { Header, Image, Text, useTheme } from "@rneui/themed";
 import { useAssets } from "expo-asset";
 import React from "react";
-import {
-  Platform,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  useColorScheme,
-} from "react-native";
+import { Platform, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Icon } from "react-native-elements";
 
 const Button: React.FC<{
@@ -16,10 +10,11 @@ const Button: React.FC<{
   title?: string;
   icon: string;
   type?: string;
+  active: boolean;
 }> = (props) => {
   const style = Style();
   const iconName = props.icon;
-  const theme = useTheme();
+  const { theme } = useTheme();
   const iconType = React.useMemo(() => {
     return props.type === undefined ? "font-awesome" : props.type;
   }, [props.type]);
@@ -28,44 +23,47 @@ const Button: React.FC<{
     return props.title !== "" ? props.title : undefined;
   }, [props.type]);
 
+  const color = props.active ? theme.colors.secondary : theme.colors.black;
+
   return (
     <TouchableOpacity style={style.button} onPress={props.onPress}>
-      <Icon name={iconName} type={iconType} color={theme.theme.colors.black} />
-      {title && Platform.OS === "web" ? <Text>{title}</Text> : <></>}
+      <Icon name={iconName} type={iconType} color={color} />
+      {title && Platform.OS === "web" ? (
+        <Text style={{ color: color }}>{title}</Text>
+      ) : (
+        <></>
+      )}
     </TouchableOpacity>
   );
 };
 
-const TopMenu: React.FC = () => {
-  const nav = useNavigation();
+const TopMenu: React.FC<NativeStackHeaderProps> = (props) => {
   const style = Style();
-  const colorScheme = useColorScheme();
-  const { setMode } = useThemeMode();
-  const theme = useTheme();
   const [assets, error] = useAssets([require("../assets/logo_tobe.webp")]);
-  React.useEffect(() => {
-    setMode(colorScheme);
-  }, [colorScheme]);
+  const { theme } = useTheme();
 
-  // React.useEffect(() => {
-  //   Asset.loadAsync(moduleIds).then(setAssets).catch(setError);
-  // }, []);
+  const { navigation, route } = props;
 
   return (
     <>
       <Header
+        {...props}
         placement="left"
         leftComponent={
-          !!assets && assets.length > 0 ? (
+          !!assets &&
+          assets.length > 0 && (
             <Image
               source={{
                 uri: assets[0].localUri,
               }}
               style={style.logo}
-              onPress={() => nav.navigate("Home")}
+              tintColor={
+                route.name === "Home"
+                  ? theme.colors.secondary
+                  : theme.colors.black
+              }
+              onPress={() => navigation.navigate("Home")}
             />
-          ) : (
-            <></>
           )
         }
         centerComponent={
@@ -73,30 +71,31 @@ const TopMenu: React.FC = () => {
             <Button
               title="About us"
               icon="group"
-              onPress={() => nav.navigate("About")}
+              onPress={() => navigation.navigate("About")}
+              active={route.name === "About"}
             />
             <Button
               title="Downloads"
               icon="download"
-              onPress={() => nav.navigate("Downloads")}
+              onPress={() => navigation.navigate("Downloads")}
+              active={route.name === "Downloads"}
             />
           </View>
-        } // Personalizza il titolo del menu
+        }
         rightComponent={
           <View style={style.right}>
             {true ? (
-              <Icon
-                name="user"
-                type="font-awesome"
-                color={theme.theme.colors.black}
-                onPress={() => nav.navigate("Login")}
+              <Button
+                icon="user"
+                onPress={() => navigation.navigate("Login")}
+                active={route.name === "Login"}
               />
             ) : (
-              <Icon
-                name="logout"
+              <Button
+                icon="logout"
                 type="MaterialIcons"
-                color={theme.theme.colors.black}
-                onPress={() => nav.navigate("Logout")}
+                onPress={() => navigation.navigate("Logout")}
+                active={route.name === "Logout"}
               />
             )}
           </View>
